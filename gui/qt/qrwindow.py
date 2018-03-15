@@ -27,9 +27,9 @@ from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QHBoxLayout, QVBoxLayout, QWidget
 
 
-from electroncash_gui.qt.qrcodewidget import QRCodeWidget
+from electroncash_plusgui.qt.qrcodewidget import QRCodeWidget
 from .util import WWLabel
-from electroncash.i18n import _
+from electroncashplus.i18n import _
 
 
 class QR_Window(QWidget):
@@ -37,7 +37,7 @@ class QR_Window(QWidget):
     def __init__(self, win):
         QWidget.__init__(self)
         self.win = win
-        self.setWindowTitle('Electron Cash - ' + _('Payment Request'))
+        self.setWindowTitle('Electron Cash Plus - ' + _('Payment Request'))
         self.setMinimumSize(800, 250)
         self.label = ''
         self.amount = 0

@@ -4,13 +4,13 @@
 #
 
 try:
-    from electroncash.bitcoin import TYPE_ADDRESS, push_script, var_int, msg_magic, Hash, verify_message, pubkey_from_signature, point_to_ser, public_key_to_p2pkh, EncodeAES, DecodeAES, MyVerifyingKey, int_to_hex
-    from electroncash.bitcoin import serialize_xpub, deserialize_xpub
-    from electroncash.transaction import Transaction
-    from electroncash.i18n import _
-    from electroncash.keystore import Hardware_KeyStore
+    from electroncashplus.bitcoin import TYPE_ADDRESS, push_script, var_int, msg_magic, Hash, verify_message, pubkey_from_signature, point_to_ser, public_key_to_p2pkh, EncodeAES, DecodeAES, MyVerifyingKey, int_to_hex
+    from electroncashplus.bitcoin import serialize_xpub, deserialize_xpub
+    from electroncashplus.transaction import Transaction
+    from electroncashplus.i18n import _
+    from electroncashplus.keystore import Hardware_KeyStore
     from ..hw_wallet import HW_PluginBase
-    from electroncash.util import print_error, to_string, UserCancelled
+    from electroncashplus.util import print_error, to_string, UserCancelled
 
     import time
     import hid

@@ -191,9 +191,9 @@ class Blockchain(util.PrintError):
         _hash = hash_header(header)
         if prev_hash != header.get('prev_block_hash'):
             raise VerifyError("prev hash mismatch: %s vs %s" % (prev_hash, header.get('prev_block_hash')))
-        # checkpoint BitcoinCash fork block
-        if (header.get('block_height') == NetworkConstants.BITCOIN_CASH_FORK_BLOCK_HEIGHT and hash_header(header) != NetworkConstants.BITCOIN_CASH_FORK_BLOCK_HASH):
-            err_str = "block at height %i is not cash chain fork block. hash %s" % (header.get('block_height'), hash_header(header))
+        # checkpoint BitcoinCashPlus fork block
+        if (header.get('block_height') == NetworkConstants.BITCOIN_CASHPLUS_FORK_BLOCK_HEIGHT and hash_header(header) != NetworkConstants.BITCOIN_CASH_FORK_BLOCK_HASH):
+            err_str = "block at height %i is not cash plus chain fork block. hash %s" % (header.get('block_height'), hash_header(header))
             raise VerifyError(err_str)
         if bits != header.get('bits'):
             raise VerifyError("bits mismatch: %s vs %s" % (bits, header.get('bits')))
@@ -348,12 +348,11 @@ class Blockchain(util.PrintError):
         prior = self.read_header(height - 1)
         bits = prior['bits']
 
-        #NOV 13 HF DAA
+        #DAA
 
         prevheight = height -1
         daa_mtp=self.get_median_time_past(prevheight)
 
-        #if (daa_mtp >= 1509559291):  #leave this here for testing
         if (daa_mtp >= 1510600000):
 
             if NetworkConstants.TESTNET:

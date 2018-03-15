@@ -23,11 +23,11 @@
 # CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from electroncash.address import Address
-from electroncash.i18n import _
-from electroncash.util import format_time, age
-from electroncash.plugins import run_hook
-from electroncash.paymentrequest import PR_UNKNOWN
+from electroncashplus.address import Address
+from electroncashplus.i18n import _
+from electroncashplus.util import format_time, age
+from electroncashplus.plugins import run_hook
+from electroncashplus.paymentrequest import PR_UNKNOWN
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import QTreeWidgetItem, QMenu

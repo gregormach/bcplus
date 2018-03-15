@@ -50,7 +50,7 @@ if jnius:
 
 script_dir = os.path.dirname(os.path.realpath(__file__))
 is_bundle = getattr(sys, 'frozen', False)
-is_local = not is_bundle and os.path.exists(os.path.join(script_dir, "electron-cash.desktop"))
+is_local = not is_bundle and os.path.exists(os.path.join(script_dir, "electron-cash-plus.desktop"))
 is_android = 'ANDROID_DATA' in os.environ
 
 # move this back to gui/kivy/__init.py once plugins are moved
@@ -90,22 +90,22 @@ if not is_android:
 if is_local or is_android:
     import imp
     imp.load_module('electroncash', *imp.find_module('lib'))
-    imp.load_module('electroncash_gui', *imp.find_module('gui'))
-    imp.load_module('electroncash_plugins', *imp.find_module('plugins'))
+    imp.load_module('electroncash_plusgui', *imp.find_module('gui'))
+    imp.load_module('electroncash_plusplugins', *imp.find_module('plugins'))
 
-from electroncash import bitcoin, util
-from electroncash import SimpleConfig, Network
-from electroncash.networks import NetworkConstants
-from electroncash.wallet import Wallet, ImportedPrivkeyWallet, ImportedAddressWallet
-from electroncash.storage import WalletStorage
-from electroncash.util import print_msg, print_stderr, json_encode, json_decode
-from electroncash.util import set_verbosity, InvalidPassword
-from electroncash.commands import get_parser, known_commands, Commands, config_variables
-from electroncash import daemon
-from electroncash import keystore
-from electroncash.mnemonic import Mnemonic
-import electroncash_plugins
-import electroncash.web as web
+from electroncashplus import bitcoin, util
+from electroncashplus import SimpleConfig, Network
+from electroncashplus.networks import NetworkConstants
+from electroncashplus.wallet import Wallet, ImportedPrivkeyWallet, ImportedAddressWallet
+from electroncashplus.storage import WalletStorage
+from electroncashplus.util import print_msg, print_stderr, json_encode, json_decode
+from electroncashplus.util import set_verbosity, InvalidPassword
+from electroncashplus.commands import get_parser, known_commands, Commands, config_variables
+from electroncashplus import daemon
+from electroncashplus import keystore
+from electroncashplus.mnemonic import Mnemonic
+import electroncash_plusplugins
+import electroncashplus.web as web
 
 # get password routine
 def prompt_password(prompt, confirm=True):
@@ -189,7 +189,7 @@ def init_daemon(config_options):
     storage = WalletStorage(config.get_wallet_path())
     if not storage.file_exists():
         print_msg("Error: Wallet file not found.")
-        print_msg("Type 'electron-cash create' to create a new wallet, or provide a path to a wallet with the -w option")
+        print_msg("Type 'electron-cash-plus create' to create a new wallet, or provide a path to a wallet with the -w option")
         sys.exit(0)
     if storage.is_encrypted():
         if config.get('password'):
@@ -224,7 +224,7 @@ def init_cmdline(config_options, server):
 
     if cmd.requires_wallet and not storage.file_exists():
         print_msg("Error: Wallet file not found.")
-        print_msg("Type 'electron-cash create' to create a new wallet, or provide a path to a wallet with the -w option")
+        print_msg("Type 'electron-cash-plus create' to create a new wallet, or provide a path to a wallet with the -w option")
         sys.exit(0)
 
     # important warning
@@ -293,7 +293,7 @@ def run_offline_command(config, config_options):
     return result
 
 def init_plugins(config, gui_name):
-    from electroncash.plugins import Plugins
+    from electroncashplus.plugins import Plugins
     return Plugins(config, is_local or is_android, gui_name)
 
 
@@ -408,7 +408,7 @@ if __name__ == '__main__':
                 d = daemon.Daemon(config, fd, False)
                 d.start()
                 if config.get('websocket_server'):
-                    from electroncash import websockets
+                    from electroncashplus import websockets
                     websockets.WebSocketServer(config, d.network).start()
                 if config.get('requests_dir'):
                     path = os.path.join(config.get('requests_dir'), 'index.html')
@@ -436,7 +436,7 @@ if __name__ == '__main__':
         else:
             cmd = known_commands[cmdname]
             if cmd.requires_network:
-                print_msg("Daemon not running; try 'electron-cash daemon start'")
+                print_msg("Daemon not running; try 'electron-cash-plus daemon start'")
                 sys.exit(1)
             else:
                 init_plugins(config, 'cmdline')

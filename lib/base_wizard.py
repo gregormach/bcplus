@@ -26,7 +26,7 @@
 import os
 from . import bitcoin
 from . import keystore
-from .keystore import bip44_derivation, bip44_derivation_145
+from .keystore import bip44_derivation, bip44_derivation_6666666
 from .wallet import (ImportedAddressWallet, ImportedPrivkeyWallet,
                      Standard_Wallet, Multisig_Wallet, wallet_types)
 from .i18n import _
@@ -81,7 +81,7 @@ class BaseWizard(object):
         wallet_kinds = [
             ('standard',  _("Standard wallet")),
             ('multisig',  _("Multi-signature wallet")),
-            ('imported',  _("Import Bitcoin Cash addresses or private keys")),
+            ('imported',  _("Import Bitcoin Cash Plus addresses or private keys")),
         ]
         choices = [pair for pair in wallet_kinds if pair[0] in wallet_types]
         self.choice_dialog(title=title, message=message, choices=choices, run_next=self.on_wallet_type)
@@ -131,7 +131,7 @@ class BaseWizard(object):
     def import_addresses_or_keys(self):
         v = lambda x: keystore.is_address_list(x) or keystore.is_private_key_list(x)
         title = _("Import Bitcoin Addresses")
-        message = _("Enter a list of Bitcoin Cash addresses (this will create a watching-only wallet), or a list of private keys.")
+        message = _("Enter a list of Bitcoin Cash Plus addresses (this will create a watching-only wallet), or a list of private keys.")
         self.add_xpub_dialog(title=title, message=message, run_next=self.on_import,
                              is_valid=v, allow_multi=True)
 
@@ -228,7 +228,7 @@ class BaseWizard(object):
             # This is partially compatible with BIP45; assumes index=0
             default_derivation = "m/45'/0"
         else:
-            default_derivation = bip44_derivation_145(0)
+            default_derivation = bip44_derivation_6666666(0)
         self.derivation_dialog(f, default_derivation)
 
     def derivation_dialog(self, f, default_derivation):
@@ -236,7 +236,7 @@ class BaseWizard(object):
             _('Enter your wallet derivation here.'),
             _('If you are not sure what this is, leave this field unchanged.'),
 	    _("If you want the wallet to use legacy Bitcoin addresses use m/44'/0'/0'"),
-	    _("If you want the wallet to use Bitcoin Cash addresses use m/44'/145'/0'")
+	    _("If you want the wallet to use Bitcoin Cash plus addresses use m/44'/6666666'/0'")
         ])
         self.line_dialog(run_next=f, title=_('Derivation'), message=message, default=default_derivation, test=bitcoin.is_bip32_derivation)
 
@@ -291,7 +291,7 @@ class BaseWizard(object):
 
     def on_restore_bip39(self, seed, passphrase):
         f = lambda x: self.run('on_bip44', seed, passphrase, str(x))
-        self.derivation_dialog(f, bip44_derivation_145(0))
+        self.derivation_dialog(f, bip44_derivation_6666666(0))
 
     def create_keystore(self, seed, passphrase):
         k = keystore.from_seed(seed, passphrase, self.wallet_type == 'multisig')

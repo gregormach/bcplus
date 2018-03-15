@@ -1,9 +1,9 @@
 include LICENCE RELEASE-NOTES AUTHORS
 include README.rst
-include electron-cash.conf.sample
-include electron-cash.desktop
+include electron-cash-plus.conf.sample
+include electron-cash-plus.desktop
 include *.py
-include electron-cash
+include electron-cash-plus
 recursive-include lib *.py
 recursive-include gui *.py
 recursive-include plugins *.py

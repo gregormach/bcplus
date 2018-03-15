@@ -38,14 +38,14 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 import PyQt5.QtCore as QtCore
 
-from electroncash.i18n import _, set_language
-from electroncash.plugins import run_hook
-from electroncash import WalletStorage
-# from electroncash.synchronizer import Synchronizer
-# from electroncash.verifier import SPV
-# from electroncash.util import DebugMem
-from electroncash.util import UserCancelled, print_error
-# from electroncash.wallet import Abstract_Wallet
+from electroncashplus.i18n import _, set_language
+from electroncashplus.plugins import run_hook
+from electroncashplus import WalletStorage
+# from electroncashplus.synchronizer import Synchronizer
+# from electroncashplus.verifier import SPV
+# from electroncashplus.util import DebugMem
+from electroncashplus.util import UserCancelled, print_error
+# from electroncashplus.wallet import Abstract_Wallet
 
 from .installwizard import InstallWizard, GoBack
 
@@ -55,7 +55,7 @@ try:
 except Exception as e:
     print(e)
     print("Error: Could not find icons file.")
-    print("Run 'pyrcc5 icons.qrc -o gui/qt/icons_rc.py', and re-run Electron Cash")
+    print("Run 'pyrcc5 icons.qrc -o gui/qt/icons_rc.py', and re-run Electron Cash Plus")
     sys.exit(1)
 
 from .util import *   # * needed for plugins
@@ -132,7 +132,7 @@ class ElectrumGui:
             submenu.addAction(_("Close"), window.close)
         m.addAction(_("Dark/Light"), self.toggle_tray_icon)
         m.addSeparator()
-        m.addAction(_("Exit Electron Cash"), self.close)
+        m.addAction(_("Exit Electron Cash Plus"), self.close)
         self.tray.setContextMenu(m)
 
     def tray_icon(self):

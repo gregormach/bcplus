@@ -1,7 +1,7 @@
-# Configuration file for the electron cash client
+# Configuration file for the electron cash plus client
 # Settings defined here are shared across wallets
 #
-# copy this file to /etc/electron-cash.conf if you want read-only settings
+# copy this file to /etc/electron-cash-plus.conf if you want read-only settings
 
 [client]
 server = electron.coinucopia.io:50001:t

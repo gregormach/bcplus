@@ -31,10 +31,10 @@ from .util import MyTreeWidget, MONOSPACE_FONT, SortableTreeWidgetItem
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QFont, QColor, QKeySequence
 from PyQt5.QtWidgets import QTreeWidgetItem, QAbstractItemView, QMenu
-from electroncash.i18n import _
-from electroncash.address import Address
-from electroncash.plugins import run_hook
-import electroncash.web as web
+from electroncashplus.i18n import _
+from electroncashplus.address import Address
+from electroncashplus.plugins import run_hook
+import electroncashplus.web as web
 
 
 class AddressList(MyTreeWidget):
@@ -116,7 +116,7 @@ class AddressList(MyTreeWidget):
                     self.setCurrentItem(address_item)
 
     def create_menu(self, position):
-        from electroncash.wallet import Multisig_Wallet
+        from electroncashplus.wallet import Multisig_Wallet
         is_multisig = isinstance(self.wallet, Multisig_Wallet)
         can_delete = self.wallet.can_delete_address()
         selected = self.selectedItems()

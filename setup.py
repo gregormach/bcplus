@@ -18,7 +18,7 @@ with open('contrib/requirements/requirements-hw.txt') as f:
 version = imp.load_source('version', 'lib/version.py')
 
 if sys.version_info[:3] < (3, 5, 0):
-    sys.exit("Error: Electron Cash requires Python version >= 3.5.0...")
+    sys.exit("Error: Electron Cash Plus requires Python version >= 3.5.0...")
 
 data_files = ['contrib/requirements/' + r for r in ['requirements.txt', 'requirements-hw.txt']]
 
@@ -34,12 +34,12 @@ if platform.system() in ['Linux', 'FreeBSD', 'DragonFly']:
         else:
             usr_share = os.path.expanduser('~/.local/share')
     data_files += [
-        (os.path.join(usr_share, 'applications/'), ['electron-cash.desktop']),
-        (os.path.join(usr_share, 'pixmaps/'), ['icons/electron-cash.png'])
+        (os.path.join(usr_share, 'applications/'), ['electron-cash-plus-plus.desktop']),
+        (os.path.join(usr_share, 'pixmaps/'), ['icons/electron-cash-plus.png'])
     ]
 
 setup(
-    name="Electron Cash",
+    name="Electron Cash Plus",
     version=version.PACKAGE_VERSION,
     install_requires=[
         'pyaes>=0.1a1',
@@ -57,42 +57,41 @@ setup(
         'hardware': requirements_hw,
     },
     packages=[
-        'electroncash',
-        'electroncash_gui',
-        'electroncash_gui.qt',
-        'electroncash_plugins',
-        'electroncash_plugins.audio_modem',
-        'electroncash_plugins.cosigner_pool',
-        'electroncash_plugins.email_requests',
-        'electroncash_plugins.hw_wallet',
-        'electroncash_plugins.keepkey',
-        'electroncash_plugins.labels',
-        'electroncash_plugins.ledger',
-        'electroncash_plugins.trezor',
-        'electroncash_plugins.digitalbitbox',
-        'electroncash_plugins.virtualkeyboard',
+        'electroncashplus',
+        'electroncash_plusplusgui',
+        'electroncash_plusplusgui.qt',
+        'electroncash_plusplusplugins',
+        'electroncash_plusplusplugins.audio_modem',
+        'electroncash_plusplusplugins.cosigner_pool',
+        'electroncash_plusplusplugins.email_requests',
+        'electroncash_plusplusplugins.hw_wallet',
+        'electroncash_plusplusplugins.keepkey',
+        'electroncash_plusplusplugins.labels',
+        'electroncash_plusplusplugins.ledger',
+        'electroncash_plusplusplugins.trezor',
+        'electroncash_plusplusplugins.digitalbitbox',
+        'electroncash_plusplusplugins.virtualkeyboard',
     ],
     package_dir={
-        'electroncash': 'lib',
-        'electroncash_gui': 'gui',
-        'electroncash_plugins': 'plugins',
+        'electroncashplus': 'lib',
+        'electroncash_plusplusgui': 'gui',
+        'electroncash_plusplusplugins': 'plugins',
     },
     package_data={
-        'electroncash': [
+        'electroncashplus': [
             'servers.json',
-            'servers_testnet.json',
             'currencies.json',
             'www/index.html',
             'wordlist/*.txt',
-            'locale/*/LC_MESSAGES/electron-cash.mo',
+            'locale/*/LC_MESSAGES/electron-cash-plus.mo',
         ]
     },
-    scripts=['electron-cash'],
+    scripts=['electron-cash-plus'],
     data_files=data_files,
     description="Lightweight Bitcoin Cash Wallet",
     author="Jonald Fyookball",
-    author_email="jonf@electroncash.org",
+    author_email="leo@bitcoincashplus.org",
     license="MIT Licence",
-    url="http://electroncash.org",
-    long_description="""Lightweight Bitcoin Cash Wallet"""
+    url="http://bitcoincashplus.org",
+    long_description="""Lightweight Bitcoin Cash Plus Wallet"""
 )

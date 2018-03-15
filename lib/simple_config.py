@@ -107,7 +107,7 @@ class SimpleConfig(PrintError):
         obsolete_file = os.path.join(path, 'recent_servers')
         if os.path.exists(obsolete_file):
             os.remove(obsolete_file)
-        self.print_error("electron-cash directory", path)
+        self.print_error("electron-cash-plus directory", path)
         return path
 
     def rename_config_keys(self, config, keypairs, deprecation_warning=False):
@@ -329,7 +329,7 @@ class SimpleConfig(PrintError):
 
 
 def read_user_config(path):
-    """Parse and store the user config settings in electron-cash.conf into user_config[]."""
+    """Parse and store the user config settings in electron-cash-plus.conf into user_config[]."""
     if not path:
         return {}
     config_path = os.path.join(path, "config")

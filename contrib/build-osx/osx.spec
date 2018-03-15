@@ -5,9 +5,9 @@ from PyInstaller.utils.hooks import collect_data_files, collect_submodules, coll
 import sys
 import os
 
-PACKAGE='Electron-Cash'
+PACKAGE='Electron-Cash-Plus'
 PYPKG='electroncash'
-MAIN_SCRIPT='electron-cash'
+MAIN_SCRIPT='electron-cash-plus'
 ICONS_FILE='electron.icns'
 
 for i, x in enumerate(sys.argv):

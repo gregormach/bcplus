@@ -14,7 +14,7 @@ from kivy.core.window import Window
 from kivy.clock import Clock
 from kivy.utils import platform
 
-from electroncash.base_wizard import BaseWizard
+from electroncashplus.base_wizard import BaseWizard
 
 
 from . import EventsDialog
@@ -28,7 +28,7 @@ test_xpub = "xpub661MyMwAqRbcEbvVtRRSjqxVnaWVUMewVzMiURAKyYratih4TtBpMypzzefmv8z
 
 Builder.load_string('''
 #:import Window kivy.core.window.Window
-#:import _ electroncash_gui.kivy.i18n._
+#:import _ electroncash_plusgui.kivy.i18n._
 
 
 <WizardTextInput@TextInput>
@@ -88,7 +88,7 @@ Builder.load_string('''
             height: self.minimum_height
             Label:
                 color: root.text_color
-                text: 'ELECTRON CASH'
+                text: 'ELECTRON CASH PLUS'
                 size_hint: 1, None
                 height: self.texture_size[1] if self.opacity else 0
                 font_size: '31sp'
@@ -559,8 +559,8 @@ class RestoreSeedDialog(WizardDialog):
     def __init__(self, wizard, **kwargs):
         super(RestoreSeedDialog, self).__init__(wizard, **kwargs)
         self._test = kwargs['test']
-        from electroncash.mnemonic import Mnemonic
-        from electroncash.old_mnemonic import words as old_wordlist
+        from electroncashplus.mnemonic import Mnemonic
+        from electroncashplus.old_mnemonic import words as old_wordlist
         self.words = set(Mnemonic('en').wordlist).union(set(old_wordlist))
         self.ids.text_input_seed.text = test_seed if is_test else ''
         self.message = _('Please type your seed phrase using the virtual keyboard.')

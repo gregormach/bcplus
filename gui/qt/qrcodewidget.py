@@ -8,8 +8,8 @@ from PyQt5.QtWidgets import (
 import os
 import qrcode
 
-from electroncash import get_config
-from electroncash.i18n import _
+from electroncashplus import get_config
+from electroncashplus.i18n import _
 from .util import WindowModalDialog
 
 

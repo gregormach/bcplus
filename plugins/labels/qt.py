@@ -4,11 +4,11 @@ from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import (QHBoxLayout, QLabel, QVBoxLayout)
 
-from electroncash.plugins import hook
-from electroncash.i18n import _
-from electroncash_gui.qt import EnterButton
-from electroncash_gui.qt.util import ThreadedButton, Buttons
-from electroncash_gui.qt.util import WindowModalDialog, OkButton
+from electroncashplus.plugins import hook
+from electroncashplus.i18n import _
+from electroncash_plusgui.qt import EnterButton
+from electroncash_plusgui.qt.util import ThreadedButton, Buttons
+from electroncash_plusgui.qt.util import WindowModalDialog, OkButton
 
 from .labels import LabelsPlugin
 

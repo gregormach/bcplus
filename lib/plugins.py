@@ -48,9 +48,9 @@ class Plugins(DaemonThread):
         DaemonThread.__init__(self)
         if is_local:
             find = imp.find_module('plugins')
-            plugins = imp.load_module('electroncash_plugins', *find)
+            plugins = imp.load_module('electroncash_plusplugins', *find)
         else:
-            plugins = __import__('electroncash_plugins')
+            plugins = __import__('electroncash_plusplugins')
         self.pkgpath = os.path.dirname(plugins.__file__)
         self.config = config
         self.hw_wallets = {}
@@ -95,7 +95,7 @@ class Plugins(DaemonThread):
     def load_plugin(self, name):
         if name in self.plugins:
             return self.plugins[name]
-        full_name = 'electroncash_plugins.' + name + '.' + self.gui_name
+        full_name = 'electroncash_plusplugins.' + name + '.' + self.gui_name
         loader = pkgutil.find_loader(full_name)
         if not loader:
             raise RuntimeError("%s implementation for %s plugin not found"

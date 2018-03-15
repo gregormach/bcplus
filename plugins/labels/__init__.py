@@ -1,4 +1,4 @@
-from electroncash.i18n import _
+from electroncashplus.i18n import _
 
 fullname = _('LabelSync')
 description = ' '.join([

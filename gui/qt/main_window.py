@@ -40,27 +40,27 @@ import PyQt5.QtCore as QtCore
 from .exception_window import Exception_Hook
 from PyQt5.QtWidgets import *
 
-from electroncash.util import bh2u, bfh
+from electroncashplus.util import bh2u, bfh
 
-from electroncash import keystore
-from electroncash.address import Address
-from electroncash.bitcoin import COIN, TYPE_ADDRESS
-from electroncash.networks import NetworkConstants
-from electroncash.plugins import run_hook
-from electroncash.i18n import _
-from electroncash.util import (format_time, format_satoshis, PrintError,
+from electroncashplus import keystore
+from electroncashplus.address import Address
+from electroncashplus.bitcoin import COIN, TYPE_ADDRESS
+from electroncashplus.networks import NetworkConstants
+from electroncashplus.plugins import run_hook
+from electroncashplus.i18n import _
+from electroncashplus.util import (format_time, format_satoshis, PrintError,
                            format_satoshis_plain, NotEnoughFunds, ExcessiveFee,
                            UserCancelled)
-import electroncash.web as web
-from electroncash import Transaction
-from electroncash import util, bitcoin, commands
-from electroncash import paymentrequest
-from electroncash.wallet import Multisig_Wallet, sweep_preparations
+import electroncashplus.web as web
+from electroncashplus import Transaction
+from electroncashplus import util, bitcoin, commands
+from electroncashplus import paymentrequest
+from electroncashplus.wallet import Multisig_Wallet, sweep_preparations
 try:
-    from electroncash.plot import plot_history
+    from electroncashplus.plot import plot_history
 except:
     plot_history = None
-import electroncash.web as web
+import electroncashplus.web as web
 
 from .amountedit import AmountEdit, BTCAmountEdit, MyLineEdit, BTCkBEdit
 from .qrcodewidget import QRCodeWidget, QRDialog
@@ -90,7 +90,7 @@ class StatusBarButton(QPushButton):
             self.func()
 
 
-from electroncash.paymentrequest import PR_PAID
+from electroncashplus.paymentrequest import PR_PAID
 
 
 class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
@@ -175,7 +175,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         if self.config.get("is_maximized"):
             self.showMaximized()
 
-        self.setWindowIcon(QIcon(":icons/electron-cash.png"))
+        self.setWindowIcon(QIcon(":icons/electron-cash-plus.png"))
         self.init_menubar()
 
         wrtabs = weakref.proxy(tabs)
@@ -515,7 +515,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         tools_menu = menubar.addMenu(_("&Tools"))
 
         # Settings / Preferences are all reserved keywords in OSX using this as work around
-        tools_menu.addAction(_("Electron Cash preferences") if sys.platform == 'darwin' else _("Preferences"), self.settings_dialog)
+        tools_menu.addAction(_("Electron Cash Plus preferences") if sys.platform == 'darwin' else _("Preferences"), self.settings_dialog)
         tools_menu.addAction(_("&Network"), lambda: self.gui_object.show_network_dialog(self))
         tools_menu.addAction(_("&Plugins"), self.plugins_dialog)
         tools_menu.addSeparator()
@@ -535,9 +535,9 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
 
         help_menu = menubar.addMenu(_("&Help"))
         help_menu.addAction(_("&About"), self.show_about)
-        help_menu.addAction(_("&Official website"), lambda: webbrowser.open("http://electroncash.org"))
+        help_menu.addAction(_("&Official website"), lambda: webbrowser.open("http://electroncashplus.org"))
         help_menu.addSeparator()
-        help_menu.addAction(_("Documentation"), lambda: webbrowser.open("http://electroncash.readthedocs.io/")).setShortcut(QKeySequence.HelpContents)
+        help_menu.addAction(_("Documentation"), lambda: webbrowser.open("http://electroncashplus.readthedocs.io/")).setShortcut(QKeySequence.HelpContents)
         help_menu.addAction(_("&Report Bug"), self.show_report_bug)
         help_menu.addSeparator()
         help_menu.addAction(_("&Donate to server"), self.donate_to_server)
@@ -554,19 +554,19 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
             self.show_error(_('No donation address for this server'))
 
     def show_about(self):
-        QMessageBox.about(self, "Electron Cash",
+        QMessageBox.about(self, "Electron Cash Plus",
             _("Version")+" %s" % (self.wallet.electrum_version) + "\n\n" +
-                _("Electron Cash's focus is speed, with low resource usage and simplifying Bitcoin. You do not need to perform regular backups, because your wallet can be recovered from a secret phrase that you can memorize or write on paper. Startup times are instant because it operates in conjunction with high-performance servers that handle the most complicated parts of the Bitcoin system."  + "\n\n" +
+                _("Electron Cash Plus's focus is speed, with low resource usage and simplifying Bitcoin. You do not need to perform regular backups, because your wallet can be recovered from a secret phrase that you can memorize or write on paper. Startup times are instant because it operates in conjunction with high-performance servers that handle the most complicated parts of the Bitcoin system."  + "\n\n" +
                 _("Uses icons from the Icons8 icon pack (icons8.com).")))
 
     def show_report_bug(self):
         msg = ' '.join([
             _("Please report any bugs as issues on github:<br/>"),
-            "<a href=\"https://github.com/fyookball/electrum/issues\">https://github.com/fyookball/electrum/issues</a><br/><br/>",
-            _("Before reporting a bug, upgrade to the most recent version of Electron Cash (latest release or git HEAD), and include the version number in your report."),
+            "<a href=\"https://github.com/bitcoincashplus/electrum/issues\">https://github.com/fyookball/electrum/issues</a><br/><br/>",
+            _("Before reporting a bug, upgrade to the most recent version of Electron Cash Plus (latest release or git HEAD), and include the version number in your report."),
             _("Try to explain not only what the bug is, but how it occurs.")
          ])
-        self.show_message(msg, title="Electron Cash - " + _("Reporting Bugs"))
+        self.show_message(msg, title="Electron Cash Plus - " + _("Reporting Bugs"))
 
     def notify_transactions(self):
         if not self.network or not self.network.is_connected():
@@ -596,9 +596,9 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         if self.tray:
             try:
                 # this requires Qt 5.9
-                self.tray.showMessage("Electron Cash", message, QIcon(":icons/electrum_dark_icon"), 20000)
+                self.tray.showMessage("Electron Cash Plus", message, QIcon(":icons/electrum_dark_icon"), 20000)
             except TypeError:
-                self.tray.showMessage("Electron Cash", message, QSystemTrayIcon.Information, 20000)
+                self.tray.showMessage("Electron Cash Plus", message, QSystemTrayIcon.Information, 20000)
 
 
 
@@ -2153,7 +2153,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         return d.run()
 
     def tx_from_text(self, txt):
-        from electroncash.transaction import tx_from_str
+        from electroncashplus.transaction import tx_from_str
         try:
             txt_tx = tx_from_str(txt)
             tx = Transaction(txt_tx)
@@ -2169,11 +2169,11 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
             return tx
         except:
             traceback.print_exc(file=sys.stdout)
-            self.show_critical(_("Electron Cash was unable to parse your transaction"))
+            self.show_critical(_("Electron Cash  Plus was unable to parse your transaction"))
             return
 
     def read_tx_from_qrcode(self):
-        from electroncash import qrscanner
+        from electroncashplus import qrscanner
         try:
             data = qrscanner.scan_barcode(self.config.get_video_device())
         except BaseException as e:
@@ -2200,7 +2200,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
             with open(fileName, "r") as f:
                 file_content = f.read()
         except (ValueError, IOError, os.error) as reason:
-            self.show_critical(_("Electron Cash was unable to open your transaction file") + "\n" + str(reason), title=_("Unable to read file or no transaction found"))
+            self.show_critical(_("Electron Cash Plus was unable to open your transaction file") + "\n" + str(reason), title=_("Unable to read file or no transaction found"))
             return
         file_content = file_content.strip()
         tx_file_dict = json.loads(str(file_content))
@@ -2211,7 +2211,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         return tx
 
     def do_process_from_text(self):
-        from electroncash.transaction import SerializationError
+        from electroncashplus.transaction import SerializationError
         text = text_dialog(self, _('Input raw transaction'), _("Transaction:"), _("Load transaction"))
         if not text:
             return
@@ -2223,7 +2223,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
             self.show_critical(_("Electrum was unable to deserialize the transaction:") + "\n" + str(e))
 
     def do_process_from_file(self):
-        from electroncash.transaction import SerializationError
+        from electroncashplus.transaction import SerializationError
         try:
             tx = self.read_tx_from_file()
             if tx:
@@ -2232,7 +2232,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
             self.show_critical(_("Electrum was unable to deserialize the transaction:") + "\n" + str(e))
 
     def do_process_from_txid(self):
-        from electroncash import transaction
+        from electroncashplus import transaction
         txid, ok = QInputDialog.getText(self, _('Lookup transaction'), _('Transaction ID') + ':')
         if ok and txid:
             txid = str(txid).strip()
@@ -2267,7 +2267,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         e.setReadOnly(True)
         vbox.addWidget(e)
 
-        defaultname = 'electron-cash-private-keys.csv'
+        defaultname = 'electron-cash-plus-private-keys.csv'
         select_msg = _('Select file to export your private keys to')
         hbox, filename_e, csv_button = filename_field(self, self.config, defaultname, select_msg)
         vbox.addLayout(hbox)
@@ -2326,7 +2326,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
             self.do_export_privkeys(filename, private_keys, csv_button.isChecked())
         except (IOError, os.error) as reason:
             txt = "\n".join([
-                _("Electron Cash was unable to produce a private key-export."),
+                _("Electron Cash Plus was unable to produce a private key-export."),
                 str(reason)
             ])
             self.show_critical(txt, title=_("Unable to create csv"))
@@ -2358,26 +2358,26 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
                 self.wallet.set_label(key, value)
             self.show_message(_("Your labels were imported from") + " '%s'" % str(labelsFile))
         except (IOError, os.error) as reason:
-            self.show_critical(_("Electron Cash was unable to import your labels.") + "\n" + str(reason))
+            self.show_critical(_("Electron Cash Plus was unable to import your labels.") + "\n" + str(reason))
         self.address_list.update()
         self.history_list.update()
 
     def do_export_labels(self):
         labels = self.wallet.labels
         try:
-            fileName = self.getSaveFileName(_("Select file to save your labels"), 'electron-cash_labels.json', "*.json")
+            fileName = self.getSaveFileName(_("Select file to save your labels"), 'electron-cash-plus_labels.json', "*.json")
             if fileName:
                 with open(fileName, 'w+') as f:
                     json.dump(labels, f, indent=4, sort_keys=True)
                 self.show_message(_("Your labels were exported to") + " '%s'" % str(fileName))
         except (IOError, os.error) as reason:
-            self.show_critical(_("Electron Cash was unable to export your labels.") + "\n" + str(reason))
+            self.show_critical(_("Electron Cash Plus  was unable to export your labels.") + "\n" + str(reason))
 
     def export_history_dialog(self):
         d = WindowModalDialog(self, _('Export History'))
         d.setMinimumSize(400, 200)
         vbox = QVBoxLayout(d)
-        defaultname = os.path.expanduser('~/electron-cash-history.csv')
+        defaultname = os.path.expanduser('~/electron-cash-plus-history.csv')
         select_msg = _('Select file to export your wallet transactions to')
         hbox, filename_e, csv_button = filename_field(self, self.config, defaultname, select_msg)
         vbox.addLayout(hbox)
@@ -2394,7 +2394,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         try:
             self.do_export_history(self.wallet, filename, csv_button.isChecked())
         except (IOError, os.error) as reason:
-            export_error_label = _("Electron Cash was unable to produce a transaction export.")
+            export_error_label = _("Electron Cash Plus  was unable to produce a transaction export.")
             self.show_critical(export_error_label + "\n" + str(reason), title=_("Unable to export history"))
             return
         self.show_message(_("Your wallet history has been successfully exported."))
@@ -2573,7 +2573,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         lang_help = _('Select which language is used in the GUI (after restart).')
         lang_label = HelpLabel(_('Language') + ':', lang_help)
         lang_combo = QComboBox()
-        from electroncash.i18n import languages
+        from electroncashplus.i18n import languages
         lang_combo.addItems(list(languages.values()))
         try:
             index = languages.keys().index(self.config.get("language",''))
@@ -2726,7 +2726,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         block_ex_combo.currentIndexChanged.connect(on_be)
         gui_widgets.append((block_ex_label, block_ex_combo))
 
-        from electroncash import qrscanner
+        from electroncashplus import qrscanner
         system_cameras = qrscanner._find_system_cameras()
         qr_combo = QComboBox()
         qr_combo.addItem("Default","default")
@@ -2904,7 +2904,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
 
         run_hook('close_settings_dialog')
         if self.need_restart:
-            self.show_warning(_('Please restart Electron Cash to activate the new GUI settings'), title=_('Success'))
+            self.show_warning(_('Please restart Electron Cash Plus to activate the new GUI settings'), title=_('Success'))
 
 
     def closeEvent(self, event):

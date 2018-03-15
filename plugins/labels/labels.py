@@ -7,9 +7,9 @@ import traceback
 
 import base64
 
-from electroncash.bitcoin import aes_decrypt_with_iv, aes_encrypt_with_iv
-from electroncash.plugins import BasePlugin, hook
-from electroncash.i18n import _
+from electroncashplus.bitcoin import aes_decrypt_with_iv, aes_encrypt_with_iv
+from electroncashplus.plugins import BasePlugin, hook
+from electroncashplus.i18n import _
 
 
 class LabelsPlugin(BasePlugin):

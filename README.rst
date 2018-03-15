@@ -1,12 +1,12 @@
-Electron Cash - Lightweight Bitcoin Cash client
+Electron Cash Plus - Lightweight Bitcoin Cash client
 =====================================
 
 ::
 
   Licence: MIT Licence
-  Author: Jonald Fyookball
+  Author: Jonald Fyookball,Crypto Leo
   Language: Python
-  Homepage: https://electroncash.org/
+  Homepage: https://bitcoincashplus.org/
 
 
 
@@ -14,28 +14,28 @@ Electron Cash - Lightweight Bitcoin Cash client
 Getting started
 ===============
 
-Electron Cash is a pure python application forked from Electrum. If you want to use the
+Electron Cash Plus is a pure python application forked from Electrum. If you want to use the
 Qt interface, install the Qt dependencies::
 
     sudo apt-get install python3-pyqt5
 
 If you downloaded the official package (tar.gz), you can run
-Electron Cash from its root directory (called Electrum), without installing it on your
+Electron Cash Plus from its root directory (called Electrum), without installing it on your
 system; all the python dependencies are included in the 'packages'
-directory. To run Electron Cash from its root directory, just do::
+directory. To run Electron Cash Plus from its root directory, just do::
 
-    ./electron-cash
+    ./electron-cash-plus
 
-You can also install Electron Cash on your system, by running this command::
+You can also install Electron Cash Plus on your system, by running this command::
 
     sudo apt-get install python3-setuptools
     python3 setup.py install
 
 This will download and install the Python dependencies used by
-Electron Cash, instead of using the 'packages' directory.
+Electron Cash Plus, instead of using the 'packages' directory.
 
 If you cloned the git repository, you need to compile extra files
-before you can run Electron Cash. Read the next section, "Development
+before you can run Electron Cash Plus. Read the next section, "Development
 Version".
 
 
@@ -78,7 +78,7 @@ To create binaries, create the 'packages' directory::
 
     ./contrib/make_packages
 
-This directory contains the python dependencies used by Electron Cash.
+This directory contains the python dependencies used by Electron Cash Plus.
 
 Mac OS X / macOS
 --------

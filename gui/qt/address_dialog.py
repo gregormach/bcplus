@@ -23,8 +23,8 @@
 # CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from electroncash.i18n import _
-from electroncash.address import Address
+from electroncashplus.i18n import _
+from electroncashplus.address import Address
 
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *

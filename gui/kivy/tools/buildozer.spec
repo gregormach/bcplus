@@ -1,13 +1,13 @@
 [app]
 
 # (str) Title of your application
-title = Electron-Cash
+title = Electron-Cash-Plus
 
 # (str) Package Name
-package.name = ElectronCash3
+package.name = ElectronCashPlus3
 
 # (str) Package domain (needed for android/ios packaging)
-package.domain = org.electroncash
+package.domain = org.electroncashplus
 
 # (str) Source code where the main.py live
 source.dir = .

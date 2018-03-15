@@ -26,9 +26,9 @@
 import webbrowser
 
 from .util import *
-import electroncash.web as web
-from electroncash.i18n import _
-from electroncash.util import timestamp_to_datetime, profiler
+import electroncashplus.web as web
+from electroncashplus.i18n import _
+from electroncashplus.util import timestamp_to_datetime, profiler
 
 
 TX_ICONS = [

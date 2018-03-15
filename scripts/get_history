@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 
 import sys
-from electroncash import Network
-from electroncash.util import json_encode, print_msg
-from electroncash import bitcoin
+from electroncashplus import Network
+from electroncashplus.util import json_encode, print_msg
+from electroncashplus import bitcoin
 
 try:
     addr = sys.argv[1]

@@ -40,11 +40,11 @@ from PyQt5.QtCore import *
 import PyQt5.QtGui as QtGui
 from PyQt5.QtWidgets import (QVBoxLayout, QLabel, QGridLayout, QLineEdit)
 
-from electroncash.plugins import BasePlugin, hook
-from electroncash.paymentrequest import PaymentRequest
-from electroncash.i18n import _
-from electroncash_gui.qt.util import EnterButton, Buttons, CloseButton
-from electroncash_gui.qt.util import OkButton, WindowModalDialog
+from electroncashplus.plugins import BasePlugin, hook
+from electroncashplus.paymentrequest import PaymentRequest
+from electroncashplus.i18n import _
+from electroncash_plusgui.qt.util import EnterButton, Buttons, CloseButton
+from electroncash_plusgui.qt.util import OkButton, WindowModalDialog
 
 
 class Processor(threading.Thread):
@@ -143,7 +143,7 @@ class Plugin(BasePlugin):
         menu.addAction(_("Send via e-mail"), lambda: self.send(window, addr))
 
     def send(self, window, addr):
-        from electroncash import paymentrequest
+        from electroncashplus import paymentrequest
         r = window.wallet.receive_requests.get(addr)
         message = r.get('memo', '')
         if r.get('signature'):

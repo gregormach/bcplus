@@ -17,17 +17,17 @@ from kivy.lang import Builder
 from kivy.factory import Factory
 from kivy.utils import platform
 
-from electroncash.util import profiler, format_time, InvalidPassword, NotEnoughFunds
-from electroncash import bitcoin
-from electroncash.util import timestamp_to_datetime
-from electroncash.web import create_URI, parse_URI
-from electroncash.address import Address
-from electroncash.paymentrequest import PR_UNPAID, PR_PAID, PR_UNKNOWN, PR_EXPIRED
+from electroncashplus.util import profiler, format_time, InvalidPassword, NotEnoughFunds
+from electroncashplus import bitcoin
+from electroncashplus.util import timestamp_to_datetime
+from electroncashplus.web import create_URI, parse_URI
+from electroncashplus.address import Address
+from electroncashplus.paymentrequest import PR_UNPAID, PR_PAID, PR_UNKNOWN, PR_EXPIRED
 
 from .context_menu import ContextMenu
 
 
-from electroncash_gui.kivy.i18n import _
+from electroncash_plusgui.kivy.i18n import _
 
 class EmptyLabel(Factory.Label):
     pass
@@ -218,7 +218,7 @@ class SendScreen(CScreen):
             # it sould be already saved
             return
         # save address as invoice
-        from electroncash.paymentrequest import make_unsigned_request, PaymentRequest
+        from electroncashplus.paymentrequest import make_unsigned_request, PaymentRequest
         addr = Address.from_string(self.screen.address)
         req = {'address': addr, 'memo':self.screen.message}
         amount = self.app.get_amount(self.screen.amount) if self.screen.amount else 0

@@ -24,8 +24,8 @@
 # CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from electroncash.plugins import BasePlugin, hook
-from electroncash.i18n import _
+from electroncashplus.plugins import BasePlugin, hook
+from electroncashplus.i18n import _
 
 
 class HW_PluginBase(BasePlugin):

@@ -355,7 +355,7 @@ def user_dir():
     if 'ANDROID_DATA' in os.environ:
         return android_check_data_dir()
     elif os.name == 'posix':
-        return os.path.join(os.environ["HOME"], ".electron-cash" )
+        return os.path.join(os.environ["HOME"], ".electron-cash-plus" )
     elif "APPDATA" in os.environ:
         return os.path.join(os.environ["APPDATA"], "ElectronCash")
     elif "LOCALAPPDATA" in os.environ:

@@ -1,4 +1,4 @@
-# Electron Cash - lightweight Bitcoin Cash client
+# Electron Cash Plus - lightweight Bitcoin Cash client
 # Copyright (C) 2011 thomasv@gitorious
 # Copyright (C) 2017 Neil Booth
 #
@@ -50,39 +50,21 @@ class NetworkConstants:
     def set_mainnet(cls):
         cls.TESTNET = False
         cls.WIF_PREFIX = 0x80
-        cls.ADDRTYPE_P2PKH = 0
+        cls.ADDRTYPE_P2PKH = 28
         cls.ADDRTYPE_P2PKH_BITPAY = 28
-        cls.ADDRTYPE_P2SH = 5
+        cls.ADDRTYPE_P2SH = 23
         cls.ADDRTYPE_P2SH_BITPAY = 40
-        cls.CASHADDR_PREFIX = "bitcoincash"
-        cls.HEADERS_URL = "http://bitcoincash.com/files/blockchain_headers"
+        cls.CASHADDR_PREFIX = "bitcoincashplus"
+        cls.HEADERS_URL = "http://www.bitcoincashplus.org/files/blockchain_headers"
         cls.GENESIS = "000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f"
         cls.DEFAULT_PORTS = {'t': '50001', 's': '50002'}
         cls.DEFAULT_SERVERS = read_json_dict('servers.json')
-        cls.TITLE = 'Electron Cash'
+        cls.TITLE = 'Electron Cash Plus'
 
         # Bitcoin Cash fork block specification
-        cls.BITCOIN_CASH_FORK_BLOCK_HEIGHT = 478559
-        cls.BITCOIN_CASH_FORK_BLOCK_HASH = "000000000000000000651ef99cb9fcbe0dadde1d424bd9f15ff20136191a5eec"
+        cls.BITCOIN_CASHPLUS_FORK_BLOCK_HEIGHT = 509696
+        cls.BITCOIN_CASHPLUS_FORK_BLOCK_HASH = "78845aca25c5173784b3854783e09721be4f1d19c743bf778b378132ec0aaf79"
 
-    @classmethod
-    def set_testnet(cls):
-        cls.TESTNET = True
-        cls.WIF_PREFIX = 0xef
-        cls.ADDRTYPE_P2PKH = 111
-        cls.ADDRTYPE_P2PKH_BITPAY = 111  # Unsure
-        cls.ADDRTYPE_P2SH = 196
-        cls.ADDRTYPE_P2SH_BITPAY = 196  # Unsure
-        cls.CASHADDR_PREFIX = "bchtest"
-        cls.HEADERS_URL = "http://bitcoincash.com/files/testnet_headers"
-        cls.GENESIS = "000000000933ea01ad0ee984209779baaec3ced90fa3f408719526f8d77f4943"
-        cls.DEFAULT_PORTS = {'t':'51001', 's':'51002'}
-        cls.DEFAULT_SERVERS = read_json_dict('servers_testnet.json')
-        cls.TITLE = 'Electron Cash Testnet'
-
-        # Bitcoin Cash fork block specification
-        cls.BITCOIN_CASH_FORK_BLOCK_HEIGHT = 1155876
-        cls.BITCOIN_CASH_FORK_BLOCK_HASH = "00000000000e38fef93ed9582a7df43815d5c2ba9fd37ef70c9a0ea4a285b8f5"
 
 
 NetworkConstants.set_mainnet()

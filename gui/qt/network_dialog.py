@@ -30,10 +30,10 @@ from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 import PyQt5.QtCore as QtCore
 
-from electroncash.i18n import _
-from electroncash.networks import NetworkConstants
-from electroncash.util import print_error
-from electroncash.network import serialize_server, deserialize_server
+from electroncashplus.i18n import _
+from electroncashplus.networks import NetworkConstants
+from electroncashplus.util import print_error
+from electroncashplus.network import serialize_server, deserialize_server
 
 from .util import *
 

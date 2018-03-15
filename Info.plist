@@ -9,7 +9,7 @@
       <string>bitcoincash</string>
       <key>CFBundleURLSchemes</key>
       <array>
-        <string>bitcoincash</string>
+        <string>bitcoincashplus</string>
       </array>
     </dict>
   </array>

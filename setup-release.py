@@ -1,5 +1,5 @@
 """
-py2app/py2exe build script for Electron Cash
+py2app/py2exe build script for Electron Cash Plus
 
 Usage (Mac OS X):
      python setup.py py2app
@@ -18,8 +18,8 @@ from lib.util import print_error
 from lib.version import PACKAGE_VERSION as version
 
 
-name = "Electron-Cash"
-mainscript = 'electron-cash'
+name = "Electron-Cash-Plus"
+mainscript = 'electron-cash-plus'
 
 if sys.version_info[:3] < (3, 0, 0):
     print_error("Error: " + name + " requires Python version >= 3.0.0...")
