@@ -5,7 +5,7 @@ from kivy.lang import Builder
 from kivy.clock import Clock
 from kivy.uix.label import Label
 
-from electroncash_plusgui.kivy.i18n import _
+from electroncashplus_gui.kivy.i18n import _
 from datetime import datetime
 from electroncashplus.util import InvalidPassword
 

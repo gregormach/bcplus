@@ -27,8 +27,8 @@
 import threading
 
 from PyQt5.Qt import QVBoxLayout, QLabel
-from electroncash_plusgui.qt.password_dialog import PasswordDialog, PW_PASSPHRASE
-from electroncash_plusgui.qt.util import *
+from electroncashplus_gui.qt.password_dialog import PasswordDialog, PW_PASSPHRASE
+from electroncashplus_gui.qt.util import *
 
 from electroncashplus.i18n import _
 from electroncashplus.util import PrintError
@@ -173,7 +173,7 @@ class QtHandlerBase(QObject, PrintError):
 
 from electroncashplus.plugins import hook
 from electroncashplus.util import UserCancelled
-from electroncash_plusgui.qt.main_window import StatusBarButton
+from electroncashplus_gui.qt.main_window import StatusBarButton
 
 class QtPluginBase(object):
 

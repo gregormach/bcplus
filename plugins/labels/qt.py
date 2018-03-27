@@ -6,9 +6,9 @@ from PyQt5.QtWidgets import (QHBoxLayout, QLabel, QVBoxLayout)
 
 from electroncashplus.plugins import hook
 from electroncashplus.i18n import _
-from electroncash_plusgui.qt import EnterButton
-from electroncash_plusgui.qt.util import ThreadedButton, Buttons
-from electroncash_plusgui.qt.util import WindowModalDialog, OkButton
+from electroncashplus_gui.qt import EnterButton
+from electroncashplus_gui.qt.util import ThreadedButton, Buttons
+from electroncashplus_gui.qt.util import WindowModalDialog, OkButton
 
 from .labels import LabelsPlugin
 

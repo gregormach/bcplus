@@ -37,7 +37,7 @@ from electroncashplus.i18n import _
 from electroncashplus.wallet import Multisig_Wallet
 from electroncashplus.util import bh2u, bfh
 
-from electroncash_plusgui.qt.transaction_dialog import show_transaction
+from electroncashplus_gui.qt.transaction_dialog import show_transaction
 
 import sys
 import traceback

@@ -27,7 +27,7 @@ from electroncashplus.paymentrequest import PR_UNPAID, PR_PAID, PR_UNKNOWN, PR_E
 from .context_menu import ContextMenu
 
 
-from electroncash_plusgui.kivy.i18n import _
+from electroncashplus_gui.kivy.i18n import _
 
 class EmptyLabel(Factory.Label):
     pass

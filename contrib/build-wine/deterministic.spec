@@ -31,7 +31,7 @@ datas = [
     (home+'lib/servers_testnet.json', 'electroncash'),
     (home+'lib/wordlist/english.txt', 'electroncash/wordlist'),
     (home+'lib/locale', 'electroncash/locale'),
-    (home+'plugins', 'electroncash_plusplugins'),
+    (home+'plugins', 'electroncashplus_plugins'),
 ]
 datas += collect_data_files('trezorlib')
 datas += collect_data_files('btchip')

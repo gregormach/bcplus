@@ -7,7 +7,7 @@ from electroncashplus.plugins import hook
 from electroncashplus.wallet import Standard_Wallet
 from .ledger import LedgerPlugin
 from ..hw_wallet.qt import QtHandlerBase, QtPluginBase
-from electroncash_plusgui.qt.util import *
+from electroncashplus_gui.qt.util import *
 
 #from btchip.btchipPersoWizard import StartBTChipPersoDialog
 

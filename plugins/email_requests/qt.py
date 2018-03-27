@@ -43,8 +43,8 @@ from PyQt5.QtWidgets import (QVBoxLayout, QLabel, QGridLayout, QLineEdit)
 from electroncashplus.plugins import BasePlugin, hook
 from electroncashplus.paymentrequest import PaymentRequest
 from electroncashplus.i18n import _
-from electroncash_plusgui.qt.util import EnterButton, Buttons, CloseButton
-from electroncash_plusgui.qt.util import OkButton, WindowModalDialog
+from electroncashplus_gui.qt.util import EnterButton, Buttons, CloseButton
+from electroncashplus_gui.qt.util import OkButton, WindowModalDialog
 
 
 class Processor(threading.Thread):

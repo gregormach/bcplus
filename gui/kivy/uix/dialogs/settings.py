@@ -5,7 +5,7 @@ from kivy.lang import Builder
 
 from electroncashplus.util import base_units
 from electroncashplus.i18n import languages
-from electroncash_plusgui.kivy.i18n import _
+from electroncashplus_gui.kivy.i18n import _
 from electroncashplus.plugins import run_hook
 from electroncashplus.util import fee_levels
 
@@ -13,7 +13,7 @@ from .choice_dialog import ChoiceDialog
 
 Builder.load_string('''
 #:import partial functools.partial
-#:import _ electroncash_plusgui.kivy.i18n._
+#:import _ electroncashplus_gui.kivy.i18n._
 
 <SettingsDialog@Popup>
     id: settings

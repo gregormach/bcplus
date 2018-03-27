@@ -27,7 +27,7 @@ from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QHBoxLayout, QVBoxLayout, QWidget
 
 
-from electroncash_plusgui.qt.qrcodewidget import QRCodeWidget
+from electroncashplus_gui.qt.qrcodewidget import QRCodeWidget
 from .util import WWLabel
 from electroncashplus.i18n import _
 

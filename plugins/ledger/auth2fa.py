@@ -5,11 +5,11 @@ import PyQt5.QtCore as QtCore
 from PyQt5.QtWidgets import *
 
 from electroncashplus.i18n import _
-from electroncash_plusgui.qt.util import *
+from electroncashplus_gui.qt.util import *
 from electroncashplus.util import print_msg
 
 import os, hashlib, websocket, logging, json, copy
-from electroncash_plusgui.qt.qrcodewidget import QRCodeWidget
+from electroncashplus_gui.qt.qrcodewidget import QRCodeWidget
 from btchip.btchip import *
 
 DEBUG = False

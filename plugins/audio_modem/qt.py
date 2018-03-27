@@ -6,7 +6,7 @@ import sys
 import platform
 
 from electroncashplus.plugins import BasePlugin, hook
-from electroncash_plusgui.qt.util import WaitingDialog, EnterButton, WindowModalDialog
+from electroncashplus_gui.qt.util import WaitingDialog, EnterButton, WindowModalDialog
 from electroncashplus.util import print_msg, print_error
 from electroncashplus.i18n import _
 

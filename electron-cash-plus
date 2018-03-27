@@ -90,8 +90,8 @@ if not is_android:
 if is_local or is_android:
     import imp
     imp.load_module('electroncash', *imp.find_module('lib'))
-    imp.load_module('electroncash_plusgui', *imp.find_module('gui'))
-    imp.load_module('electroncash_plusplugins', *imp.find_module('plugins'))
+    imp.load_module('electroncashplus_gui', *imp.find_module('gui'))
+    imp.load_module('electroncashplus_plugins', *imp.find_module('plugins'))
 
 from electroncashplus import bitcoin, util
 from electroncashplus import SimpleConfig, Network
@@ -104,7 +104,7 @@ from electroncashplus.commands import get_parser, known_commands, Commands, conf
 from electroncashplus import daemon
 from electroncashplus import keystore
 from electroncashplus.mnemonic import Mnemonic
-import electroncash_plusplugins
+import electroncashplus_plugins
 import electroncashplus.web as web
 
 # get password routine

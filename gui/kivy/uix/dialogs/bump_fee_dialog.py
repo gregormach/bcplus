@@ -4,7 +4,7 @@ from kivy.properties import ObjectProperty
 from kivy.lang import Builder
 
 from electroncashplus.util import fee_levels
-from electroncash_plusgui.kivy.i18n import _
+from electroncashplus_gui.kivy.i18n import _
 
 Builder.load_string('''
 <BumpFeeDialog@Popup>
