@@ -34,7 +34,7 @@ if platform.system() in ['Linux', 'FreeBSD', 'DragonFly']:
         else:
             usr_share = os.path.expanduser('~/.local/share')
     data_files += [
-        (os.path.join(usr_share, 'applications/'), ['electron-cash-plus-plus.desktop']),
+        (os.path.join(usr_share, 'applications/'), ['electron-cash-plus.desktop']),
         (os.path.join(usr_share, 'pixmaps/'), ['icons/electron-cash-plus.png'])
     ]
 
@@ -88,7 +88,7 @@ setup(
     },
     scripts=['electron-cash-plus'],
     data_files=data_files,
-    description="Lightweight Bitcoin Cash Wallet",
+    description="Lightweight Bitcoin Cash Plus  Wallet",
     author="Jonald Fyookball",
     author_email="leo@bitcoincashplus.org",
     license="MIT Licence",

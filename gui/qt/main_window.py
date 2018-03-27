@@ -399,8 +399,8 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         if self.wallet.is_watching_only():
             msg = ' '.join([
                 _("This wallet is watching-only."),
-                _("This means you will not be able to spend Bitcoin Cash with it."),
-                _("Make sure you own the seed phrase or the private keys, before you request Bitcoin Cash to be sent to this wallet.")
+                _("This means you will not be able to spend Bitcoin Cash Plus with it."),
+                _("Make sure you own the seed phrase or the private keys, before you request Bitcoin Cash Plus to be sent to this wallet.")
             ])
             self.show_warning(msg, title=_('Information'))
 
@@ -660,7 +660,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         if self.decimal_point == 5:
             return 'mBCH'
         if self.decimal_point == 8:
-            return 'BCH'
+            return 'BCP'
         raise Exception('Unknown base unit')
 
     def connect_fields(self, window, btc_e, fiat_e, fee_e):
@@ -785,7 +785,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         self.receive_address_e = ButtonsLineEdit()
         self.receive_address_e.addCopyButton(self.app)
         self.receive_address_e.setReadOnly(True)
-        msg = _('Bitcoin Cash address where the payment should be received. Note that each payment request uses a different Bitcoin Cash address.')
+        msg = _('Bitcoin Cash Plus address where the payment should be received. Note that each payment request uses a different Bitcoin Cash Plus address.')
         self.receive_address_label = HelpLabel(_('Receiving address'), msg)
         self.receive_address_e.textChanged.connect(self.update_receive_qr)
         self.receive_address_e.setFocusPolicy(Qt.NoFocus)
@@ -816,7 +816,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         msg = ' '.join([
             _('Expiration date of your request.'),
             _('This information is seen by the recipient if you send them a signed payment request.'),
-            _('Expired requests have to be deleted manually from your list, in order to free the corresponding Bitcoin Cash addresses.'),
+            _('Expired requests have to be deleted manually from your list, in order to free the corresponding Bitcoin Cash Plus addresses.'),
             _('The bitcoin address never expires and will always be part of this electrum wallet.'),
         ])
         grid.addWidget(HelpLabel(_('Request expires'), msg), 3, 0)
@@ -1037,7 +1037,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         self.amount_e = BTCAmountEdit(self.get_decimal_point)
         self.payto_e = PayToEdit(self)
         msg = _('Recipient of the funds.') + '\n\n'\
-              + _('You may enter a Bitcoin Cash address, a label from your list of contacts (a list of completions will be proposed), or an alias (email-like address that forwards to a Bitcoin Cash address)')
+              + _('You may enter a Bitcoin Cash Plus address, a label from your list of contacts (a list of completions will be proposed), or an alias (email-like address that forwards to a Bitcoin Cash address)')
         payto_label = HelpLabel(_('Pay to'), msg)
         grid.addWidget(payto_label, 1, 0)
         grid.addWidget(self.payto_e, 1, 1, 1, -1)
@@ -2013,7 +2013,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         try:
             addr = Address.from_string(address)
         except:
-            self.show_message(_('Invalid Bitcoin Cash address.'))
+            self.show_message(_('Invalid Bitcoin Cash Plus address.'))
             return
         if addr.kind != addr.ADDR_P2PKH:
             self.show_message(_('Cannot sign messages with this type of address.') + '\n\n' + self.msg_sign)
@@ -2033,7 +2033,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         try:
             address = Address.from_string(address.text().strip())
         except:
-            self.show_message(_('Invalid Bitcoin Cash address.'))
+            self.show_message(_('Invalid Bitcoin Cash Plus address.'))
             return
         message = message.toPlainText().strip().encode('utf-8')
         try:
@@ -2681,7 +2681,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         SSL_id_e.setReadOnly(True)
         id_widgets.append((SSL_id_label, SSL_id_e))
 
-        units = ['BCH', 'mBCH', 'bits']
+        units = ['BCP', 'mBCH', 'bits']
         msg = _('Base unit of your wallet.')\
               + '\n1BCH=1000mBCH.\n' \
               + _(' These settings affects the fields in the Send tab')+' '
@@ -2695,9 +2695,9 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
                 return
             edits = self.amount_e, self.fee_e, self.receive_amount_e
             amounts = [edit.get_amount() for edit in edits]
-            if unit_result == 'BCH':
+            if unit_result == 'BCP':
                 self.decimal_point = 8
-            elif unit_result == 'mBCH':
+            elif unit_result == 'mBCP':
                 self.decimal_point = 5
             elif unit_result == 'bits':
                 self.decimal_point = 2

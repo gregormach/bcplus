@@ -1,4 +1,4 @@
-# Electron Cash Plus - lightweight Bitcoin Cash client
+# Electron Cash Plus - lightweight Bitcoin Cash Plus  client
 # Copyright (C) 2011 thomasv@gitorious
 # Copyright (C) 2017 Neil Booth
 #
@@ -61,7 +61,7 @@ class NetworkConstants:
         cls.DEFAULT_SERVERS = read_json_dict('servers.json')
         cls.TITLE = 'Electron Cash Plus'
 
-        # Bitcoin Cash fork block specification
+        # Bitcoin Cash Plus  fork block specification
         cls.BITCOIN_CASHPLUS_FORK_BLOCK_HEIGHT = 509696
         cls.BITCOIN_CASHPLUS_FORK_BLOCK_HASH = "78845aca25c5173784b3854783e09721be4f1d19c743bf778b378132ec0aaf79"
 

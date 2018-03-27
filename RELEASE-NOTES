@@ -28,14 +28,14 @@
 
 7/27/2017 - Jonald Fyookball
 
-Electron Cash Plus is a fork of the open source Electrum Bitcoin wallet (www.electrum.org) for Bitcoin Cash.  The current
+Electron Cash Plus is a fork of the open source Electrum Bitcoin wallet (www.electrum.org) for Bitcoin Cash Plus.  The current
 release is based on the Electrum 2.9.0 codebase with patches to
 
-- handle Bitcoin Cash difficulty adjustment algorithm
-- sign transactions the Bitcoin Cash way
+- handle Bitcoin Cash Plus difficulty adjustment algorithm
+- sign transactions the Bitcoin Cash Plus  way
 - updated list of electrum servers
 - updated icons and branding
-- remove RBF (unsupported by Bitcoin Cash network nodes)
+- remove RBF (unsupported by Bitcoin Cash Plus  network nodes)
 - use different directory for wallets and configuration
 
 The Electron Cash Plus software is NOT affiliated, associated, or endorsed by Electrum, electrum.org or the Electrum
@@ -58,22 +58,22 @@ Ensure you are running Electron Cash Plus and not Electrum by checking for "Elec
 users installing from setup.py have reported conflicts if both Electrum and Electron Cash Plus are installed in parallel
 that way.
 
-We STRONGLY recommend you get comfortable and only send a small amount of Bitcoin Cash coins at first, to yourself,
+We STRONGLY recommend you get comfortable and only send a small amount of Bitcoin Cash Plus  coins at first, to yourself,
 to confirm the network is processing your transactions as expected.
 
 Bitcoin Cash hard forks after the 6th block with timestamp greater than 1 August 2017, 12:20 UTC has been mined.  The
 seventh block must be greater than one million bytes in size.
 
-The Bitcoin Cash fork enforces a new signing scheme which is incompatible with the legacy chain.  Electron Cash only
-signs transactions using this scheme, so its transactions are only valid on the Bitcoin Cash hard fork after the fork
+The Bitcoin Cash Plus  fork enforces a new signing scheme which is incompatible with the legacy chain.  Electron Cash only
+signs transactions using this scheme, so its transactions are only valid on the Bitcoin Cash Plus  hard fork after the fork
 has occurred.
 
 If you want to send Bitcoin before the fork, or Segwitcoins after the fork, you should continue to use the standard
 Electrum client, Electron Cash will not work.
 
 Once the network forks, it will take time for the Electrum server network to split into servers of the Segwit fork, and
-servers of the Bitcoin Cash fork.  You should ensure you are connected to a Bitcoin Cash Electrum server in order to
-send transactions successfully.  Some servers that will be serving the Bitcoin Cash fork are:
+servers of the Bitcoin Cash Plus  fork.  You should ensure you are connected to a Bitcoin Cash Plus  Electrum server in order to
+send transactions successfully.  Some servers that will be serving the Bitcoin Cash Plus  fork are:
 
     electrum-abc.cascharia.com via SSL port 50002
     electrum-abc.criptolayer.net via SSL port 50012
@@ -85,7 +85,7 @@ There will likely be other servers available; please check their banners in the 
 Hardware Wallets
 ----------------
 
-Since Bitcoin Cash enforces a new signing scheme, hardware wallet vendors need to supply new firmware and/or libraries
+Since Bitcoin Cash Plus  enforces a new signing scheme, hardware wallet vendors need to supply new firmware and/or libraries
 for the hardware to be able to sign transactions correctly.  Currently such libraries and firmware do not exist, so you
 cannot use your hardware wallets with Electron Cash.
 
@@ -98,14 +98,14 @@ Two-factor Authentication (2FA) Wallets
 ---------------------------------------
 
 For the same reason as Hardware Wallets above, 2FA wallets need Trustedcoin to perform new Bitcoin Cash-style
-signatures for their transactions to be valid on the Bitcoin Cash fork.  If third party support appears we will attempt
+signatures for their transactions to be valid on the Bitcoin Cash Plus  fork.  If third party support appears we will attempt
 to integrate it.
 
 
 Multisig
 --------
 
-For a multisig transaction to be valid on the Bitcoin Cash fork, each signature must be done thew new Bitcoin Cash way,
+For a multisig transaction to be valid on the Bitcoin Cash Plus  fork, each signature must be done thew new Bitcoin Cash Plus  way,
 so each signature must be performed with Electron Cash or other Bitcoin Cash-compatible software.
 
 Unfortunately Electron Cash does not currently work with multisig wallets as Electrum's serialization format for
@@ -143,9 +143,9 @@ and there is no warning message.
   * command-line option for locktime
 
 # Release 2.9.3
-  * Improved code to force wallet to stay on Bitcoin Cash chain
+  * Improved code to force wallet to stay on Bitcoin Cash Plus  chain
   * Removed dynamic fees.  Fees are now simple Sat/Byte model
-  * Add Coin_Type 145 for Bitcoin Cash for bip39 seed imports
+  * Add Coin_Type 145 for Bitcoin Cash Plus  for bip39 seed imports
   * Use bitcoincash URI prefix for receiving and QR codes
 
 # Release 2.9.4

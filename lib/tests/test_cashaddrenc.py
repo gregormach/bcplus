@@ -29,8 +29,8 @@ import random
 from lib import cashaddr
 
 
-BCH_PREFIX = "bitcoincash"
-BCH_TESTNET_PREFIX = "bchtest"
+BCP_PREFIX = "bitcoincashplus"
+BCP_TESTNET_PREFIX = "bitcoincashplus"
 
 VALID_PUBKEY_ADDRESSES = [
     "bitcoincash:qpm2qsznhks23z7629mms6s4cwef74vcwvy22gdx6a",

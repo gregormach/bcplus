@@ -20,15 +20,15 @@ Successfully tested with Ledger Nano S (1.3.1) Electron-Cash-Plus (3.1.2) and Bi
 
 ### Requirements
 
-To complete a Bitcoin Cash transactions with a Ledger Nano S, you will need:
+To complete a Bitcoin Cash Plus  transactions with a Ledger Nano S, you will need:
 
 1. An updated Ledger device - supported by Nano, HW.1, Nano S or Blue
-2. Bitcoin Cash app installed on your Ledger device
-3. "Browser Support" is disabled in the Bitcoin Cash Ledger app (only required for Nano S and/or Blue)
+2. Bitcoin Cash Plus  app installed on your Ledger device
+3. "Browser Support" is disabled in the Bitcoin Cash Plus  Ledger app (only required for Nano S and/or Blue)
 
 PLEASE NOTE: Ensure that you do not have another application (like Electrum, Bitcoin Core, or any other software) opened on your computer
 
-(Use the Ledger Manager Chrome application to download and install the Bitcoin Cash app onto your Ledger device)
+(Use the Ledger Manager Chrome application to download and install the Bitcoin Cash Plus  app onto your Ledger device)
 
 ---
 
@@ -45,9 +45,9 @@ Firmware Update Guide: https://ledger.zendesk.com/hc/en-us/articles/115005165409
 
 ---
 
-### Bitcoin Cash Ledger App
+### Bitcoin Cash Plus  Ledger App
 
-Install the Ledger Manager to download and install Bitcoin Cash application onto your Ledger device.
+Install the Ledger Manager to download and install Bitcoin Cash Plus  application onto your Ledger device.
 
 ---
 
@@ -55,14 +55,14 @@ Install the Ledger Manager to download and install Bitcoin Cash application onto
 
 1. Connect your Ledger device to USB
 2. Enter your PIN code
-3. Open the Bitcoin Cash application on the Ledger (required for Nano S and Blue)
+3. Open the Bitcoin Cash Plus  application on the Ledger (required for Nano S and Blue)
 4. Disable the "Browser support" setting in this application (required for Nano S and Blue)
 5. Launch Electron-Cash-Plus and start the new wallet wizard:
     * Select "Use a Hardware Device" - press Next
     * Select your Ledger device - press Next
     * Select your desired Wallet Derivation (or leave default value for Bitcoin Cash)
        - If you want to use legacy Bitcoin addresses use m/44'/0'/0'
-       - If you want to use Bitcoin Cash addresses use m/44'/145'/0'
+       - If you want to use Bitcoin Cash Plus  addresses use m/44'/145'/0'
 6. ???
 7. PROFIT!!! (Your Bitcoin wallet should now open in Electron-Cash-Plus)
 
@@ -70,7 +70,7 @@ Install the Ledger Manager to download and install Bitcoin Cash application onto
 
 ### Troubeshooting
 
-1. Uninstall and reinstall the Bitcoin Cash app on your Ledger device
+1. Uninstall and reinstall the Bitcoin Cash Plus  app on your Ledger device
 2. Try a different USB cable
 3. Try a different USB port 
 4. Try on another computer (see compatibility)

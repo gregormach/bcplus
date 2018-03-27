@@ -33,7 +33,7 @@ from .networks import NetworkConstants
 from .util import format_satoshis_plain
 
 mainnet_block_explorers = {
-    'Blockchair.com': ('https://blockchair.com/bitcoin-cash',
+    'bcpexp.org': ('http://bcpexp.org',
                        Address.FMT_LEGACY,
                         {'tx': 'transaction', 'addr': 'address'}),
 }
@@ -56,7 +56,7 @@ def BE_tuple(config):
     return BE_info().get(BE_from_config(config))
 
 def BE_from_config(config):
-    return config.get('block_explorer', 'Blockchair.com')
+    return config.get('block_explorer', 'bcpexp.org')
 
 def BE_URL(config, kind, item):
     be_tuple = BE_tuple(config)

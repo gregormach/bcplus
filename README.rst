@@ -1,4 +1,4 @@
-Electron Cash Plus - Lightweight Bitcoin Cash client
+Electron Cash Plus - Lightweight Bitcoin Cash Plus  client
 =====================================
 
 ::

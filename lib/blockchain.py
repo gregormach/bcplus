@@ -399,7 +399,7 @@ class Blockchain(util.PrintError):
                 return MAX_BITS
             return self.read_header(height // 2016 * 2016)['bits']
 
-        # bitcoin cash EDA
+        # Bitcoin Cash Plus  EDA
         # Can't go below minimum, so early bail
         if bits == MAX_BITS:
             return bits

@@ -118,7 +118,7 @@ class BitcoinAverage(ExchangeBase):
 
     def get_rates(self, ccy):
         json = self.get_json('apiv2.bitcoinaverage.com', '/indices/global/ticker/short')
-        return dict([(r.replace("BCH", ""), Decimal(json[r]['last']))
+        return dict([(r.replace("BCP", ""), Decimal(json[r]['last']))
                      for r in json if r != 'timestamp'])
 
     def history_ccys(self):
@@ -128,7 +128,7 @@ class BitcoinAverage(ExchangeBase):
 
     def request_history(self, ccy):
         history = self.get_csv('apiv2.bitcoinaverage.com',
-                               "/indices/global/history/BCH%s?period=alltime&format=csv" % ccy)
+                               "/indices/global/history/BCP%s?period=alltime&format=csv" % ccy)
         return dict([(h['DateTime'][:10], h['Average'])
                      for h in history])
 
@@ -169,23 +169,23 @@ class Bitmarket(ExchangeBase):
 class BitPay(ExchangeBase):
 
     def get_rates(self, ccy):
-        json = self.get_json('bitpay.com', '/api/rates/BCH')
+        json = self.get_json('bitpay.com', '/api/rates/BCP')
         return dict([(r['code'], Decimal(r['rate'])) for r in json])
 
 
 class Bitso(ExchangeBase):
 
     def get_rates(self, ccy):
-        json = self.get_json('api.bitso.com', '/v2/ticker/?book=bch_btc')
+        json = self.get_json('api.bitso.com', '/v2/ticker/?book=bcp_btc')
         return {'BTC': Decimal(json['last'])}
 
 
 class BitStamp(ExchangeBase):
 
     def get_rates(self, ccy):
-        json_usd = self.get_json('www.bitstamp.net', '/api/v2/ticker/bchusd')
-        json_eur = self.get_json('www.bitstamp.net', '/api/v2/ticker/bcheur')
-        json_btc = self.get_json('www.bitstamp.net', '/api/v2/ticker/bchbtc')
+        json_usd = self.get_json('www.bitstamp.net', '/api/v2/ticker/bcpusd')
+        json_eur = self.get_json('www.bitstamp.net', '/api/v2/ticker/bcpeur')
+        json_btc = self.get_json('www.bitstamp.net', '/api/v2/ticker/bcpbtc')
         return {
             'USD': Decimal(json_usd['last']),
             'EUR': Decimal(json_eur['last']),
@@ -212,7 +212,7 @@ class Coinbase(ExchangeBase):
         json = self.get_json('coinbase.com',
                              '/api/v1/currencies/exchange_rates')
         return dict([(r[7:].upper(), Decimal(json[r]))
-                     for r in json if r.startswith('bch_to_')])
+                     for r in json if r.startswith('bcp_to_')])
 
 class CoinDesk(ExchangeBase):
 
@@ -265,7 +265,7 @@ class Kraken(ExchangeBase):
 
     def get_rates(self, ccy):
         ccys = ['EUR', 'USD']
-        pairs = ['BCH%s' % c for c in ccys]
+        pairs = ['BCP%s' % c for c in ccys]
         json = self.get_json('api.kraken.com',
                              '/0/public/Ticker?pair=%s' % ','.join(pairs))
         return dict((k[-3:], Decimal(float(v['c'][0])))
@@ -283,7 +283,7 @@ class LocalBitcoins(ExchangeBase):
 class CoinFloor(ExchangeBase):
     # CoinFloor API only supports GBP on public API
     def get_rates(self, ccy):
-        json = self.get_json('webapi.coinfloor.co.uk:8090/bist/BCH/GBP', '/ticker/')
+        json = self.get_json('webapi.coinfloor.co.uk:8090/bist/BCP/GBP', '/ticker/')
         return {'GBP': Decimal(json['last'])}
 
 
@@ -297,20 +297,20 @@ class MercadoBitcoin(ExchangeBase):
 class WEX(ExchangeBase):
 
     def get_rates(self, ccy):
-        json_eur = self.get_json('wex.nz', '/api/3/ticker/bch_eur')
-        json_rub = self.get_json('wex.nz', '/api/3/ticker/bch_rur')
-        json_usd = self.get_json('wex.nz', '/api/3/ticker/bch_usd')
-        json_btc = self.get_json('wex.nz', '/api/3/ticker/bch_btc')
-        json_ltc = self.get_json('wex.nz', '/api/3/ticker/bch_ltc')
-        json_eth = self.get_json('wex.nz', '/api/3/ticker/bch_eth')
-        json_dsh = self.get_json('wex.nz', '/api/3/ticker/bch_dsh')
-        return {'EUR': Decimal(json_eur['bch_eur']['last']),
-                'RUB': Decimal(json_rub['bch_rur']['last']),
-                'USD': Decimal(json_usd['bch_usd']['last']),
-                'BTC': Decimal(json_btc['bch_btc']['last']),
-                'LTC': Decimal(json_ltc['bch_ltc']['last']),
-                'ETH': Decimal(json_eth['bch_eth']['last']),
-                'DSH': Decimal(json_dsh['bch_dsh']['last'])}
+        json_eur = self.get_json('wex.nz', '/api/3/ticker/bcp_eur')
+        json_rub = self.get_json('wex.nz', '/api/3/ticker/bcp_rur')
+        json_usd = self.get_json('wex.nz', '/api/3/ticker/bcp_usd')
+        json_btc = self.get_json('wex.nz', '/api/3/ticker/bcp_btc')
+        json_ltc = self.get_json('wex.nz', '/api/3/ticker/bcp_ltc')
+        json_eth = self.get_json('wex.nz', '/api/3/ticker/bcp_eth')
+        json_dsh = self.get_json('wex.nz', '/api/3/ticker/bcp_dsh')
+        return {'EUR': Decimal(json_eur['bcp_eur']['last']),
+                'RUB': Decimal(json_rub['bcp_rur']['last']),
+                'USD': Decimal(json_usd['bcp_usd']['last']),
+                'BTC': Decimal(json_btc['bcp_btc']['last']),
+                'LTC': Decimal(json_ltc['bcp_ltc']['last']),
+                'ETH': Decimal(json_eth['bcp_eth']['last']),
+                'DSH': Decimal(json_dsh['bcp_dsh']['last'])}
 
 
 def dictinvert(d):

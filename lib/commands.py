@@ -130,8 +130,8 @@ class Commands:
     @command('wn')
     def restore(self, text):
         """Restore a wallet from text. Text can be a seed phrase, a master
-        public key, a master private key, a list of bitcoin cash addresses
-        or bitcoin cash private keys. If you want to be prompted for your
+        public key, a master private key, a list of bitcoin cash plus addresses
+        or bitcoin cash Plus private keys. If you want to be prompted for your
         seed, type '?' or ':' (concealed) """
         raise BaseException('Not a JSON-RPC command')
 
@@ -661,8 +661,8 @@ class Commands:
 
 param_descriptions = {
     'privkey': 'Private key. Type \'?\' to get a prompt.',
-    'destination': 'Bitcoin Cash address, contact or alias',
-    'address': 'Bitcoin Cash address',
+    'destination': 'Bitcoin Cash Plus address, contact or alias',
+    'address': 'Bitcoin Cash Plus address',
     'seed': 'Seed phrase',
     'txid': 'Transaction ID',
     'pos': 'Position',
